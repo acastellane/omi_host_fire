@@ -31,6 +31,11 @@ fi
 QUALIFIER_FIELD=$(printf "%x" $((DIRTY * 1)))
 META_REGISTER_VALUE="${QUALIFIER_FIELD}${SHORT_HASH}"
 
+#========================================
+# OVERRIDE META_REGISTER_VALUE to  until code is logged into github
+META_REGISTER_VALUE="15cd07be"
+#========================================
+
 META_REGISTER_VERILOG_DEFINE="\`define FIRE_ICE_META_VERSION 32'h${META_REGISTER_VALUE}"
 echo
 echo "# VERILOG"
@@ -55,9 +60,13 @@ VHDL_HEADER="-- ${HEADER_TEXT}"
 # Generate vhdl and verilog files. Each file is purposely put on it's
 # own line in the for loop to make diffs look good.
 echo
+#for file in \
 for file in \
-    ../vhdl/meta_pkg.vhdl \
-    ; do
+    ../fire/src/vhdl/meta_pkg.vhdl 
+#    ../fire/src/vhdl/meta_pkg.vhdl \
+    #../ice/src/vhdl/meta_pkg.vhdl \
+    #; do
+    do
     echo "${VHDL_HEADER}" > $file
     echo "${META_REGISTER_VHDL_CONSTANT}" >> $file
     echo "Updated ${file}"
