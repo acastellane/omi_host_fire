@@ -1,2 +1,0 @@
-WARNING: [Common 17-138] Cannot open file : vivado.jou
-WARNING: [Common 17-138] Cannot open file : vivado.log

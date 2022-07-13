@@ -1,0 +1,6 @@
+.cteInitLog
+.Xil
+/ip_created_for*
+/fire/src/verilog/DLx*
+/fire/src/verilog/dlx*
+../fire/src/headers
