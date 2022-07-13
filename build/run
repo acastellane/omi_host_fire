@@ -43,7 +43,7 @@ else
 fi
 
 if [[ -r $2 ]] ; then
-//    export XILINXD_LICENSE_FILE=insert_license_file_server_here
+#    export XILINXD_LICENSE_FILE=insert_license_file_server_here
     if ! which vivado 2>/dev/null >/dev/null; then
         export PATH=$PATH:/afs/apd/func/vlsi/cte/tools/xilinx/$XILINX_VERSION/Vivado/$XILINX_VERSION/bin
     fi
