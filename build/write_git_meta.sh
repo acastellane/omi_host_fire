@@ -10,11 +10,11 @@ set -eu
 cd $(dirname "$(readlink -f "$0")")
 
 # Grab 28 bits of hash
-SHORT_HASH=$(/opt/xsite/cte/tools/git/latest/bin/git rev-parse --short=7 HEAD)
+SHORT_HASH=$(git rev-parse --short=7 HEAD)
 echo -n "Writing meta files for commit ${SHORT_HASH}"
 
 # Check if there are any modified or staged files
-if ! /opt/xsite/cte/tools/git/latest/bin/git diff-index --quiet HEAD --; then
+if ! git diff-index --quiet HEAD --; then
     DIRTY=1
     echo "-dirty"
 else
