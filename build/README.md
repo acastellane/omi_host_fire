@@ -3,26 +3,18 @@
 This directory contains the various scripts needed to synthesize and
 implement RTL, as well as generate a bitstream, for an FPGA using the
 Fire design. (it was targeting fire (host) and ice (device) but
-only fire is available yet)
-
-To quickly get started, the sequence is (`$design` is fire ):
-
-```
-./run $design synthesize.tcl
-./run $design implement.tcl
-./run $design gen_bitstream.tcl
-```
+only fire is available yet. Any "$design" found should be set to "fire")
 
 The following command launches for the entire process, with some parallelization:
 
 ```
-./run_fire.sh $design
+./run_fire.sh
 ```
 
 ## Main Scripts and Directories
 
 __run__: Takes a TCL script file and a design as an argument, and runs
-that TCL script on that design using Vivado 2018.2 in the terminal (no
+that TCL script on that design using Vivado 2018.3 in the terminal (no
 GUI). The command output is written to `$design/$command.log`, and
 also colorized and printed to the screen. Output files are saved in
 the `$design/` directory, including a design checkpoint (.dcp file).
