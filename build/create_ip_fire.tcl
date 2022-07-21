@@ -41,34 +41,34 @@ proc create_FIRE_IPs {} {
   export_simulation    -of_objects             [get_files $ip_dir/jtag_axi_0/jtag_axi_0.xci] -directory ip_dir/ip_user_files/sim_scripts -force >> $log_file
 
 
-  puts "                        generating IP in_system_ibert_0"
-  create_ip -name in_system_ibert -vendor xilinx.com -library ip -version 1.0 -module_name in_system_ibert_0 -dir $ip_dir >> $log_file
-  set_property -dict [list                                                           \
-                      CONFIG.C_GT_TYPE {GTY}                                         \
-                      CONFIG.C_GTS_USED { X0Y8  X0Y9  X0Y10 X0Y11 X0Y12 X0Y13 X0Y14 X0Y15} \
-                      CONFIG.C_ENABLE_INPUT_PORTS {true}                             \
-                      ] [get_ips in_system_ibert_0]
-
-  set_property generate_synth_checkpoint false [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] 
-  generate_target {instantiation_template}     [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] >> $log_file  
-  generate_target all                          [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] >> $log_file  
-  export_ip_user_files -of_objects             [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] -no_script >> $log_file  
-  export_simulation    -of_objects             [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] -directory ip_dir/ip_user_files/sim_scripts -force >> $log_file
-
-
-  puts "                        generating IP in_system_ibert_1"
-  create_ip -name in_system_ibert -vendor xilinx.com -library ip -version 1.0 -module_name in_system_ibert_1 -dir $ip_dir >> $log_file
-  set_property -dict [list                                                           \
-                      CONFIG.C_GT_TYPE {GTY}                                         \
-                      CONFIG.C_GTS_USED { X0Y0  X0Y1  X0Y2  X0Y3  X0Y4  X0Y5  X0Y6  X0Y7 } \
-                      CONFIG.C_ENABLE_INPUT_PORTS {true}                             \
-                      ] [get_ips in_system_ibert_1]
-
-  set_property generate_synth_checkpoint false [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] 
-  generate_target {instantiation_template}     [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] >> $log_file  
-  generate_target all                          [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] >> $log_file  
-  export_ip_user_files -of_objects             [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] -no_script >> $log_file  
-  export_simulation    -of_objects             [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] -directory ip_dir/ip_user_files/sim_scripts -force >> $log_file
+#  puts "                        generating IP in_system_ibert_0"
+#  create_ip -name in_system_ibert -vendor xilinx.com -library ip -version 1.0 -module_name in_system_ibert_0 -dir $ip_dir >> $log_file
+#  set_property -dict [list                                                           \
+#                      CONFIG.C_GT_TYPE {GTY}                                         \
+#                      CONFIG.C_GTS_USED { X0Y8  X0Y9  X0Y10 X0Y11 X0Y12 X0Y13 X0Y14 X0Y15} \
+#                      CONFIG.C_ENABLE_INPUT_PORTS {true}                             \
+#                      ] [get_ips in_system_ibert_0]
+#
+#  set_property generate_synth_checkpoint false [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] 
+#  generate_target {instantiation_template}     [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] >> $log_file  
+#  generate_target all                          [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] >> $log_file  
+#  export_ip_user_files -of_objects             [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] -no_script >> $log_file  
+#  export_simulation    -of_objects             [get_files $ip_dir/in_system_ibert_0/in_system_ibert_0.xci] -directory ip_dir/ip_user_files/sim_scripts -force >> $log_file
+#
+#
+#  puts "                        generating IP in_system_ibert_1"
+#  create_ip -name in_system_ibert -vendor xilinx.com -library ip -version 1.0 -module_name in_system_ibert_1 -dir $ip_dir >> $log_file
+#  set_property -dict [list                                                           \
+#                      CONFIG.C_GT_TYPE {GTY}                                         \
+#                      CONFIG.C_GTS_USED { X0Y0  X0Y1  X0Y2  X0Y3  X0Y4  X0Y5  X0Y6  X0Y7 } \
+#                      CONFIG.C_ENABLE_INPUT_PORTS {true}                             \
+#                      ] [get_ips in_system_ibert_1]
+#
+#  set_property generate_synth_checkpoint false [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] 
+#  generate_target {instantiation_template}     [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] >> $log_file  
+#  generate_target all                          [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] >> $log_file  
+#  export_ip_user_files -of_objects             [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] -no_script >> $log_file  
+#  export_simulation    -of_objects             [get_files $ip_dir/in_system_ibert_1/in_system_ibert_1.xci] -directory ip_dir/ip_user_files/sim_scripts -force >> $log_file
 
 
   if { $OMI_FREQ == "333" } {
@@ -195,6 +195,8 @@ open_example_project -force -dir $ip_dir [get_ips  gtwizard_ultrascale_0]
 puts "                        Preparing DLx Files from gtwizard_ultrascale_0_ex project ..."
 exec bash -c "cp $ip_dir/../scripts/* $ip_dir/gtwizard_ultrascale_0_ex/imports"
 exec bash -c "cd $ip_dir/gtwizard_ultrascale_0_ex/imports; ./all_shells.sh"
+exec bash -c "rm $ip_dir/gtwizard_ultrascale_0_ex/imports/dlx_phy_wrap_ref.v"
+exec bash -c "rm $ip_dir/gtwizard_ultrascale_0_ex/imports/DLx_phy_example_wrapper_ref.v"
 puts "                        Copying verilog DLx files into fire/src/verilog/ ..."
 exec bash -c "cp $ip_dir/gtwizard_ultrascale_0_ex/imports/DLx_phy_example* $ip_dir/../fire/src/verilog/"
 puts "                        Copying verilog top files into fire/src/verilog/dlx_phy_wrapxx"

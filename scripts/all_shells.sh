@@ -1,4 +1,3 @@
-./gtwiz_example_top2phy_wrap_prep0.sh
 ./gtwiz_example_top2phy_wrap_prep1.sh
 ./gtwiz_example_top2phy_wrap_prep2.sh
 ./gtwiz_reset.sh
